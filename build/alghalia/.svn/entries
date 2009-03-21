@@ -1,0 +1,138 @@
+8
+
+dir
+1678
+svn://office.trapeze.com/DeveloperWiki/django_starting_template/trunk/build/site/projectname
+svn://office.trapeze.com/DeveloperWiki
+
+
+
+2009-03-05T16:52:57.632750Z
+1577
+stoe
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2e19db5f-7844-0410-b43c-ca57358123e9
+
+media
+dir
+
+manage.py
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+436d756648d7f458aaa9c72570634e59
+2008-11-03T17:33:25.606000Z
+667
+dsalvetti
+has-props
+
+__init__.py
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-11-03T17:33:25.606000Z
+667
+dsalvetti
+
+settings.py
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+e85c9d70c1b547e60d58f23f6ccc7b18
+2009-01-21T22:39:26.458833Z
+1298
+sbull
+
+urls_dev.py
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+70663bf6bf63156dc1b48085186ea105
+2009-01-21T15:47:02.030902Z
+1291
+mabreu
+
+README.txt
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+96197f9a89fd7ba313ae17c4286f42c1
+2008-11-03T17:33:25.606000Z
+667
+dsalvetti
+
+templates_dev
+dir
+
+settings_local.py.ex
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+2ebba33e5babadf5704e8f03922e1b85
+2009-01-21T15:47:02.030902Z
+1291
+mabreu
+
+urls.py
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+c802efc744717228bdb6a73608bf8202
+2008-11-04T22:03:04.350250Z
+683
+dsalvetti
+
+media_dev
+dir
+
+templates
+dir
+
+test_all.py
+file
+
+
+
+
+2009-03-11T18:13:17.000000Z
+44c9a31e9d14b730f1cc4d81c8c478b6
+2009-03-05T16:52:57.632750Z
+1577
+stoe
+has-props
+

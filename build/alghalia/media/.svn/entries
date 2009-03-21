@@ -1,0 +1,62 @@
+8
+
+dir
+1678
+svn://office.trapeze.com/DeveloperWiki/django_starting_template/trunk/build/site/projectname/media
+svn://office.trapeze.com/DeveloperWiki
+
+
+
+2009-02-19T19:13:24.467125Z
+1486
+mabreu
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2e19db5f-7844-0410-b43c-ca57358123e9
+
+xml
+dir
+
+images
+dir
+
+css
+dir
+
+admin
+file
+
+
+
+
+2009-02-20T14:45:10.000000Z
+866b08556387c0131049abd7fb0e5106
+2008-11-04T19:14:25.772125Z
+678
+dsalvetti
+has-props
+
+
+svn:special
+
+videos
+dir
+
+js
+dir
+
+flash
+dir
+
