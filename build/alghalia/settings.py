@@ -13,6 +13,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+DEFAULT_FROM_EMAIL = 'no-reply@alghalia.net'
+
 SITE_ID = 1
 
 USE_I18N = True
@@ -67,6 +69,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'django_extensions',
+    'tagging',
+    
+    'articles',
 )
 
 try:
