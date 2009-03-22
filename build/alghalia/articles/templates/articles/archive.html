@@ -1,1 +1,30 @@
-<h1>Archive</h1>
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>{% spaceless %}
+    {{ category.name }}
+    {% if active_date %}
+    , in 
+    {% if month %}
+    {{ active_date|date:"F Y" }}
+    {% else %}
+    {% if year %}
+    {{ active_date|date:"Y" }}
+    {% endif %}
+    {% endif %}
+    {% endif %}
+{% endspaceless %}</h1>
+
+{% if articles_list %}
+<ul>
+{% for article in articles_list %}
+    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No article could be found</p>
+{% endif %}
+
+{% endblock %}
