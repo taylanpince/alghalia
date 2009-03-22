@@ -47,7 +47,12 @@ def detail(request, category_slug, year, month, slug):
     Detail page for an article
     """
     category = get_object_or_404(ArticleCategory, slug__iexact=category_slug)
-    article = get_object_or_404(Article.objects, category=category, year=int(year), month=int(month), slug__iexact=slug)
+    article = get_object_or_404(Article.objects, 
+        category=category, 
+        publication_date__year=int(year), 
+        publication_date__month=int(month), 
+        slug__iexact=slug
+    )
 
     article.view_count += 1
     article.save()
