@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import get_object_or_404
 from django.views.generic import simple, list_detail
 
@@ -23,12 +25,17 @@ def archive(request, category_slug, year=None, month=None):
     """
     category = get_object_or_404(ArticleCategory, slug__iexact=category_slug)
     articles = Article.objects.filter(category=category)
+    active_date = None
 
     if year:
         articles = articles.filter(publication_date__year=int(year))
 
+        active_date = datetime(int(year), 1, 1, 0, 0)
+
     if month:
         articles = articles.filter(publication_date__month=int(month))
+
+        active_date = datetime(int(year), int(month), 1, 0, 0)
 
     return list_detail.object_list(
         request,
@@ -38,6 +45,9 @@ def archive(request, category_slug, year=None, month=None):
         template_object_name="articles",
         extra_context={
             "category": category,
+            "year": year,
+            "month": month,
+            "active_date": active_date,
         }
     )
 
