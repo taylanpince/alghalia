@@ -12,7 +12,7 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ("title", "featured", "published", "publication_date", "expiration_date", "creation_date", "modification_date", )
+    list_display = ("title", "featured", "published", "publication_date", "expiration_date", "creation_date", "modification_date", "view_count", )
     list_filter = ("featured", "published", )
     prepopulated_fields = {
         "slug": ("title", ),

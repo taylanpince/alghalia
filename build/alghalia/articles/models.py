@@ -39,6 +39,7 @@ class Article(models.Model):
 
     creation_date = models.DateTimeField(_("Creation Date"), editable=False, auto_now_add=True)
     modification_date = models.DateTimeField(_("Modification Date"), editable=False, auto_now=True)
+    view_count = models.PositiveIntegerField(_("View Count"), editable=False, default=0)
 
     class Meta:
         verbose_name = _("Article")
