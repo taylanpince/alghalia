@@ -61,6 +61,6 @@ class Article(models.Model):
         return ("articles_detail", (), {
             "category_slug": self.category.slug,
             "year": self.publication_date.year,
-            "month": self.publication_date.strftime("%b"),
+            "month": self.publication_date.strftime("%m"),
             "slug": self.slug,
         })
