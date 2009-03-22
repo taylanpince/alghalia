@@ -31,7 +31,7 @@ def deploy(hash="HEAD"):
     put("../tmp/archive.tar.gz", "$(remote_dir)/archive.tar.gz")
     
     # Extract the files from the archive, remove the file
-    run("cd $(remote_dir); tar -xzf archive.tar.gz; rm -f archive.tar.gz")
+    run("cd $(remote_dir); /usr/bin/tar -xzf archive.tar.gz; rm -f archive.tar.gz")
     
     # Move directories out of the build folder and get rid of it
     run("mv $(remote_dir)/deploy/build/* $(remote_dir)/deploy/")
