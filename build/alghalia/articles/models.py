@@ -20,13 +20,19 @@ class ArticleCategory(models.Model):
     def __unicode__(self):
         return self.name
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ("articles_archive_by_category", (), {
+            "category_slug": self.slug,
+        })
+
 
 class Article(models.Model):
     """
     An article, linked to a category
     """
     title = models.CharField(_("Title"), max_length=255)
-    slug = models.SlugField(_("Slug"), max_length=255, unique=True)
+    slug = models.SlugField(_("Slug"), max_length=255)
     summary = models.TextField(_("Summary"), blank=True)
     body = models.TextField(_("Body"), blank=True)
     category = models.ForeignKey(ArticleCategory, verbose_name=_("Category"))
@@ -42,8 +48,19 @@ class Article(models.Model):
     view_count = models.PositiveIntegerField(_("View Count"), editable=False, default=0)
 
     class Meta:
+        ordering = ["-publication_date", "-id"]
+        unique_together = (("slug", "publication_date", "category", ), )
         verbose_name = _("Article")
         verbose_name_plural = _("Articles")
 
     def __unicode__(self):
         return self.title
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ("articles_detail", (), {
+            "category_slug": self.category.slug,
+            "year": self.publication_date.year,
+            "month": self.publication_date.strftime("%b"),
+            "slug": self.slug,
+        })
