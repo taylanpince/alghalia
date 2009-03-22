@@ -5,6 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from tagging.fields import TagField
 
+from articles.managers import ArticleManager
+
 
 class ArticleCategory(models.Model):
     """
@@ -46,6 +48,9 @@ class Article(models.Model):
     creation_date = models.DateTimeField(_("Creation Date"), editable=False, auto_now_add=True)
     modification_date = models.DateTimeField(_("Modification Date"), editable=False, auto_now=True)
     view_count = models.PositiveIntegerField(_("View Count"), editable=False, default=0)
+
+    admin_objects = models.Manager()
+    objects = ArticleManager()
 
     class Meta:
         ordering = ["-publication_date", "-id"]
