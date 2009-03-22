@@ -3,6 +3,8 @@ from datetime import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from tagging.fields import TagField
+
 
 class ArticleCategory(models.Model):
     """
@@ -28,6 +30,7 @@ class Article(models.Model):
     summary = models.TextField(_("Summary"), blank=True)
     body = models.TextField(_("Body"), blank=True)
     category = models.ForeignKey(ArticleCategory, verbose_name=_("Category"))
+    tags = TagField(_("Tags"))
 
     featured = models.BooleanField(_("Featured"), default=False)
     published = models.BooleanField(_("Published"), default=True)

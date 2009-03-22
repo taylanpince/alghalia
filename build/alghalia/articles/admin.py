@@ -20,7 +20,7 @@ class ArticleAdmin(admin.ModelAdmin):
     
     fieldsets = (
         (None, {
-            "fields": (("title", "slug", ), "category", "summary", "body", )
+            "fields": (("title", "slug", ), "category", "summary", "body", "tags", )
         }),
         (_("Publication"), {
             "fields": ("featured", "published", "publication_date", "expiration_date", ),
