@@ -1,8 +1,0 @@
-{% extends 'base.html' %}
-
-{% block body_class %}home-page{% endblock %}
-
-{% block column_class %}one-column{% endblock %}
-{% block main_content %}
-   {# todo: Include the main content here #}
-{% endblock %}
