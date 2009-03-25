@@ -5,15 +5,24 @@ from articles.models import Article, ArticleCategory
 
 
 class ArticleCategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", )
+    list_display = ("name", "featured", )
     prepopulated_fields = {
         "slug": ("name", ),
     }
+
+    fieldsets = (
+        (None, {
+            "fields": (("name", "slug", ), "featured", )
+        }),
+    )
 
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ("title", "featured", "published", "publication_date", "expiration_date", "creation_date", "modification_date", "view_count", )
     list_filter = ("featured", "published", )
+
+    search_fields = ("title", "summary", "body", "tags", )
+
     prepopulated_fields = {
         "slug": ("title", ),
     }
