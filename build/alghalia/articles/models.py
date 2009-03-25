@@ -14,6 +14,7 @@ class ArticleCategory(models.Model):
     """
     name = models.CharField(_("Name"), max_length=255)
     slug = models.SlugField(_("Slug"), max_length=255, unique=True)
+    featured = models.BooleanField(_("Featured"), default=False)
 
     class Meta:
         verbose_name = _("Article Category")
