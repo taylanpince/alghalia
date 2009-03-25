@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+{% load article_tags %}
+
 
 {% block content %}
 
 <ul>
-    <li><a href="{% url articles_landing %}">Articles</a></li>
+    <li><a href="{% url articles_landing %}">{% trans "Articles" %}</a></li>
 </ul>
+
+{% latest_article %}
 
 {% endblock %}

@@ -1,0 +1,7 @@
+{% if months %}
+<ul>
+    {% for month in months %}
+    <li><a href="{% url articles_archive_by_month category.slug month|date:"Y" month|date:"m" %}">{{ month|date:"F Y" }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

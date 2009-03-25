@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+{% load article_tags %}
+
 
 {% block content %}
 
 <h1>{% spaceless %}
     {{ category.name }}
     {% if active_date %}
-    , in 
+     in 
     {% if month %}
     {{ active_date|date:"F Y" }}
     {% else %}
@@ -17,6 +20,8 @@
     {% endif %}
 {% endspaceless %}</h1>
 
+{% article_months category %}
+
 {% if articles_list %}
 <ul>
 {% for article in articles_list %}
@@ -24,7 +29,7 @@
 {% endfor %}
 </ul>
 {% else %}
-<p>No article could be found</p>
+<p>{% trans "No article could be found." %}</p>
 {% endif %}
 
 {% endblock %}
