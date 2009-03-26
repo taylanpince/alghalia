@@ -1,0 +1,10 @@
+{% if articles %}
+<ul>
+    {% for article in articles %}
+    <li>
+        <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
+        {{ article.summary }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

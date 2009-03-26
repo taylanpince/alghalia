@@ -60,6 +60,22 @@ def popular_articles(category=None):
     }
 
 
+@register.inclusion_tag("articles/includes/featured.html")
+def featured_articles(category=None):
+    """
+    Gets the featured articles, optionally filtered by category
+    """
+    articles = Article.objects.filter(featured=True)
+
+    if category:
+        articles = Article.objects.filter(category=category)
+
+    return {
+        "category": category,
+        "articles": articles,
+    }
+
+
 class FeaturedCategoriesNode(template.Node):
     def __init__(self, var_name):
         self.var_name = var_name

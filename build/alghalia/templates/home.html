@@ -6,9 +6,7 @@
 
 {% block content %}
 
-<ul>
-    <li><a href="{% url articles_landing %}">{% trans "Articles" %}</a></li>
-</ul>
+{% featured_articles %}
 
 {% get_featured_categories as featured_categories %}
 
