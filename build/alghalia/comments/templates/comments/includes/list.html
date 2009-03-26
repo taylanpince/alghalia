@@ -2,7 +2,7 @@
 
 {% if comments %}
 <h2>{% trans "Comments" %} ({{ comments.count }})</h2>
-<ul>
+<ul class="border-list">
     {% for comment in comments %}
     <li>
         {% include "comments/includes/detail.html" %}

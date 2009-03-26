@@ -141,12 +141,12 @@ h6 {
 
 h1 {
     font-size: 28px;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 16px 0px;
 }
 
 h2 {
     font-size: 21px;
-    margin: 0px 0px 8px 0px;
+    margin: 0px 0px 12px 0px;
 }
 
 h3 {
@@ -166,6 +166,15 @@ h4 {
 
 ul {
     margin: 0px 0px 15px 0px;
+}
+
+ul.border-list {
+    margin-bottom: 25px;
+}
+
+ul.border-list li {
+    padding-top: 15px;
+    border-top: 1px solid #CCC;
 }
 
 /* @end */
