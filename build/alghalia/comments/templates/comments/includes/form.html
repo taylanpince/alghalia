@@ -3,8 +3,27 @@
 <h2>{% trans "Post a Comment" %}</h2>
 
 <form method="post" action="{% url comments_post %}">
+    {{ form.object_id }}
+    {{ form.content_type_id }}
     <ul>
-        {{ form.as_ul }}
+        <li>
+            {{ form.body.label_tag }}
+            {% if form.body.errors %}<p class="error">{{ form.body.errors|join:"<br />" }}</p>{% endif %}
+            {{ form.body }}
+        </li>
+        <li>
+            {{ form.author.label_tag }}
+            {{ form.author }}
+        </li>
+        <li>
+            {{ form.email.label_tag }}
+            {% if form.email.errors %}<p class="error">{{ form.email.errors|join:"<br />" }}</p>{% endif %}
+            {{ form.email }}
+        </li>
+        <li class="checkbox">
+            {{ form.remember }}
+            {{ form.remember.label_tag }}
+        </li>
         <li><input type="submit" value="{% trans "Submit" %}" /></li>
     </ul>
 </form>

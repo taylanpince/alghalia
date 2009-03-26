@@ -101,6 +101,11 @@ p {
     margin: 0px 0px 15px 0px;
 }
 
+p.error {
+    color: #a91105;
+    margin-bottom: 4px;
+}
+
 /* @end */
 
 
@@ -161,6 +166,33 @@ h4 {
 
 ul {
     margin: 0px 0px 15px 0px;
+}
+
+/* @end */
+
+
+/* @group Forms */
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+textarea,
+input {
+    font: 13px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, sans-serif;
+    padding: 4px;
+    border: 1px solid #CCC;
+}
+
+form li {
+    margin-bottom: 10px;
+}
+
+form li.checkbox input {
+    float: left;
+    display: inline;
+    margin: 2px 8px 0px 0px;
 }
 
 /* @end */
