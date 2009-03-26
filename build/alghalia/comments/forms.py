@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 
 from comments.models import Comment
@@ -15,3 +16,16 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ("body", "author", "email", "object_id", )
+
+    def save(self, commit=True):
+        """
+        Creates a Comment object with generic content type data
+        """
+        comment = super(CommentForm, self).save(commit=False)
+        comment.content_type = ContentType.objects.get(pk=self.cleaned_data.get("content_type_id"))
+        comment.obj = comment.content_type.get_object_for_this_type(pk=self.cleaned_data.get("object_id"))
+
+        if commit:
+            comment.save()
+
+        return comment

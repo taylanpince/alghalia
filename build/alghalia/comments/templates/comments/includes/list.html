@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% if comments %}
+<h2>{% trans "Comments" %} ({{ comments.count }})</h2>
+<ul>
+    {% for comment in comments %}
+    <li>
+        {{ comment.body|linebreaks }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

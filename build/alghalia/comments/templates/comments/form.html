@@ -1,10 +1,8 @@
-{% load i18n %}
+{% extends "base.html" %}
 
-<h2>{% trans "Post a Comment" %}</h2>
 
-<form method="post" action="{% url comments_post %}">
-    <ul>
-        {{ form.as_ul }}
-        <li><input type="submit" value="{% trans "Submit" %}" /></li>
-    </ul>
-</form>
+{% block content %}
+
+{% include "comments/includes/form.html" %}
+
+{% endblock %}

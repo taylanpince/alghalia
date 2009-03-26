@@ -8,7 +8,7 @@ from comments.models import Comment
 register = template.Library()
 
 
-@register.inclusion_tag("comments/form.html", takes_context=True)
+@register.inclusion_tag("comments/includes/form.html", takes_context=True)
 def comment_form(context, object):
     """
     Renders a comment form for the given object
@@ -22,4 +22,17 @@ def comment_form(context, object):
         "form": form,
         "object": object,
         "MEDIA_URL": context.get("MEDIA_URL", None),
+    }
+
+
+@register.inclusion_tag("comments/includes/list.html", takes_context=True)
+def comments(context, object):
+    """
+    Renders a list of comments for a given object
+    """
+    comments = Comment.objects.get_for_model(object)
+
+    return {
+        "object": object,
+        "comments": comments,
     }
