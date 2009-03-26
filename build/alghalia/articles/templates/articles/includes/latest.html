@@ -1,5 +1,5 @@
 {% if article %}
-<h3>Latest Article{% if category %}in {{ category.name }}{% endif %}</h3>
+<h3>Latest Article{% if category %} in {{ category.name }}{% endif %}</h3>
 <h5><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h5>
 {{ article.summary }}
 {% endif %}

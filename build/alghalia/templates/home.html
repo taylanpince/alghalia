@@ -10,6 +10,12 @@
     <li><a href="{% url articles_landing %}">{% trans "Articles" %}</a></li>
 </ul>
 
-{% latest_article %}
+{% get_featured_categories as featured_categories %}
+
+{% for category in featured_categories %}
+{% latest_article category %}
+{% endfor %}
+
+{% popular_articles %}
 
 {% endblock %}
