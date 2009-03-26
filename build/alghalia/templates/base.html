@@ -6,6 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 	<title>{% trans "Alghalia" %} | {% block title %}{% trans "Home" %}{% endblock %}</title>
@@ -14,41 +15,44 @@
 	    @import "{{ MEDIA_URL }}css/reset.css";
 	    @import "{{ MEDIA_URL }}css/screen.css";
 	</style>
+	
+	{% block css %}{% endblock %}
+	
 </head>
 
 <body>
 
-<div id="Container">
+    <div id="Container">
     
-    <div id="Banner">Banner</div>
+        <div id="Banner">Banner</div>
     
-    <div id="FlashHeader">Flash Header</div>
+        <div id="FlashHeader">Flash Header</div>
     
-    <div id="Page">
+        <div id="Page">
         
-        <div id="LeftColumn">
+            <div id="LeftColumn">
 
-            <div id="SearchBox">Search Box</div>
+                <div id="SearchBox">Search Box</div>
         
-            <div id="LeftSidebar">{% block left_sidebar %}&nbsp;{% endblock %}</div>
+                <div id="LeftSidebar">{% block left_sidebar %}&nbsp;{% endblock %}</div>
         
-            <div id="Content">{% block content %}{% endblock %}</div>
+                <div id="Content">{% block content %}{% endblock %}</div>
+        
+            </div>
+        
+            <div id="RightSidebar">
+                {% block right_sidebar %}
+
+                {% all_categories %}
+
+                {% endblock %}
+            </div>
         
         </div>
-        
-        <div id="RightSidebar">
-            {% block right_sidebar %}
-
-            {% all_categories %}
-
-            {% endblock %}
-        </div>
-        
+    
+        <div id="Footer">Footer</div>
+    
     </div>
-    
-    <div id="Footer">Footer</div>
-    
-</div>
 
 </body>
 </html>

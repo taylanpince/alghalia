@@ -6,6 +6,12 @@
 
 {% block title %}{{ category.name }}{% endblock %}
 
+{% block css %}
+<style type="text/css">
+    @import "{{ MEDIA_URL }}css/{{ category.theme }}.css";
+</style>
+{% endblock %}
+
 
 {% block left_sidebar %}
 

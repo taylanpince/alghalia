@@ -5,14 +5,16 @@ from articles.models import Article, ArticleCategory
 
 
 class ArticleCategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "featured", )
+    list_display = ("name", "featured", "theme", )
+    list_filter = ("featured", "theme", )
+
     prepopulated_fields = {
         "slug": ("name", ),
     }
 
     fieldsets = (
         (None, {
-            "fields": (("name", "slug", ), "featured", )
+            "fields": (("name", "slug", ), "theme", "featured", )
         }),
     )
 

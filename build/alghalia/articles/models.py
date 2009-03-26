@@ -8,12 +8,20 @@ from tagging.fields import TagField
 from articles.managers import ArticleManager
 
 
+THEME_CHOICES = (
+    ("green", _("Green")),
+    ("turquoise", _("Turquoise")),
+    ("purple", _("Purple")),
+)
+
+
 class ArticleCategory(models.Model):
     """
     An article category
     """
     name = models.CharField(_("Name"), max_length=255)
     slug = models.SlugField(_("Slug"), max_length=255, unique=True)
+    theme = models.CharField(_("Colour Theme"), max_length=10, choices=THEME_CHOICES)
     featured = models.BooleanField(_("Featured"), default=False)
 
     class Meta:

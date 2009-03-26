@@ -1,0 +1,20 @@
+/*
+ *	Title: Alghalia Green Theme
+ *	Date: March 24, 2009
+ *  Author: Taylan Pince (taylanpince at gmail dot com)
+ */
+
+
+/* @group Layout */
+
+#Banner,
+#FlashHeader,
+#RightSidebar,
+#LeftSidebar,
+#Content,
+#SearchBox,
+#Footer {
+    border-color: #94D5DC;
+}
+
+/* @end */
