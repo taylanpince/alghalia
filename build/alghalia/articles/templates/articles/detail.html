@@ -1,6 +1,7 @@
 {% extends "articles/base.html" %}
 
 {% load i18n %}
+{% load comment_tags %}
 
 
 {% block title %}{{ block.super }} | {{ article.title }}{% endblock %}
@@ -11,5 +12,7 @@
 <h1>{{ article.title }}</h1>
 
 {{ article.body|linebreaks }}
+
+{% comment_form article %}
 
 {% endblock %}

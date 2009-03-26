@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'tagging',
     
     'articles',
+    'comments',
 )
 
 try:

@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^admin/(.*)', admin.site.root),
 
     (r'^articles/', include('articles.urls')),
+    (r'^comments/', include('comments.urls')),
     
     url(r'^$', 'django.views.generic.simple.direct_to_template', {
         'template': 'home.html',
