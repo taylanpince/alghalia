@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.views.generic import simple
 
 from comments.forms import CommentForm
@@ -9,7 +10,16 @@ def show_comment(request, id):
     """
     Renders a single comment
     """
-    pass
+    comment = get_object_or_404(Comment.objects, pk=id)
+
+    if request.is_ajax():
+        template = "comments/includes/detail.html"
+    else:
+        template = "comments/detail.html"
+
+    return simple.direct_to_template(request, template, {
+        "comment": comment,
+    })
 
 
 def post_comment(request):
