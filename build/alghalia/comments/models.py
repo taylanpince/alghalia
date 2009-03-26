@@ -28,7 +28,7 @@ class Comment(models.Model):
     objects = CommentManager()
 
     class Meta:
-        ordering = ["-creation_date", "-id"]
+        ordering = ["creation_date", "id"]
         verbose_name = _("Comment")
         verbose_name_plural = _("Comments")
     
