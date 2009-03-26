@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
+
+{% block title %}{% trans "Latest Articles" %}{% endblock %}
+
 
 {% block content %}
 
-<h1>Landing</h1>
-
-<h2>Categories</h2>
-
-<ul>
-{% for category in categories %}
-    <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
-{% endfor %}
-</ul>
-
-<h2>Latest Articles</h2>
+<h1>{% trans "Latest Articles" %}</h1>
 
 <ul>
 {% for article in articles|slice:"10" %}

@@ -1,4 +1,9 @@
-{% extends "base.html" %}
+{% extends "articles/base.html" %}
+
+{% load i18n %}
+
+
+{% block title %}{{ block.super }} | {{ article.title }}{% endblock %}
 
 
 {% block content %}

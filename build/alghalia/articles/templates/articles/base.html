@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load article_tags %}
+
+
+{% block title %}{{ category.name }}{% endblock %}
+
+
+{% block left_sidebar %}
+
+{% article_months category %}
+
+{% endblock %}

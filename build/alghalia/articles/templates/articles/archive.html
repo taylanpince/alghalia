@@ -1,14 +1,10 @@
-{% extends "base.html" %}
+{% extends "articles/base.html" %}
 
 {% load i18n %}
 {% load article_tags %}
 
 
-{% block left_sidebar %}
-
-{% article_months category %}
-
-{% endblock %}
+{% block title %}{{ block.super }}{% if active_date %} | {% if month %}{{ active_date|date:"F Y" }}{% else %}{% if year %}{{ active_date|date:"Y" }}{% endif %}{% endif %}{% endif %}{% endblock %}
 
 
 {% block content %}
