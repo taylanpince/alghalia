@@ -103,3 +103,15 @@ def get_featured_categories(parser, token):
     var_name, = m.groups()
 
     return FeaturedCategoriesNode(var_name)
+
+
+@register.inclusion_tag("articles/includes/categories.html")
+def all_categories():
+    """
+    Renders all categories
+    """
+    categories = ArticleCategory.objects.all()
+
+    return {
+        "categories": categories,
+    }
