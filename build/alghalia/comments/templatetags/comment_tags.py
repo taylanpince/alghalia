@@ -16,6 +16,9 @@ def comment_form(context, object):
     form = CommentForm(auto_id="%s", prefix="CommentForm", initial={
         "content_type_id": ContentType.objects.get_for_model(object).pk,
         "object_id": object.pk,
+        "author": context.get("COMMENT_AUTHOR", ""),
+        "email": context.get("COMMENT_EMAIL", ""),
+        "remember": context.get("COMMENT_EMAIL", None) or context.get("COMMENT_AUTHOR", None),
     })
 
     return {

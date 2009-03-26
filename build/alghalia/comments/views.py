@@ -25,7 +25,16 @@ def post_comment(request):
         comment.save()
 
         if not request.is_ajax():
-            return HttpResponseRedirect(comment.get_absolute_url())
+            response = HttpResponseRedirect(comment.get_absolute_url())
+
+        if form.cleaned_data.get("remember", False):
+            response.set_cookie("comment_author", value=comment.author)
+            response.set_cookie("comment_email", value=comment.email)
+        else:
+            response.delete_cookie("comment_author")
+            response.delete_cookie("comment_email")
+
+        return response
 
     return simple.direct_to_template(request, "comments/form.html", {
         "form": form,

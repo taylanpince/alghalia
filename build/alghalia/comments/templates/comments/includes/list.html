@@ -5,7 +5,7 @@
 <ul>
     {% for comment in comments %}
     <li>
-        {{ comment.body|linebreaks }}
+        {% include "comments/includes/detail.html" %}
     </li>
     {% endfor %}
 </ul>
