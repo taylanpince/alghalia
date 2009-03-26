@@ -1,0 +1,157 @@
+/*
+ *	Title: Alghalia Screen Styles
+ *	Date: March 24, 2009
+ *  Author: Taylan Pince (taylanpince at gmail dot com)
+ */
+
+
+/* @group Global */
+
+body {
+    font: 13px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 19px;
+}
+
+/* @end */
+
+
+/* @group Layout */
+
+#Container {
+    width: 900px;
+    margin: 10px auto 10px auto;
+}
+
+#Banner {
+    width: 890px;
+    height: 72px;
+    border: 1px solid #333;
+    padding: 4px;
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+}
+
+#FlashHeader {
+    width: 890px;
+    height: 152px;
+    border: 1px solid #333;
+    text-align: center;
+    padding: 4px;
+    margin: 0px 0px 10px 0px;
+}
+
+#Page {
+    width: 900px;
+    overflow: hidden;
+    position: static;
+    margin: 0px 0px 10px 0px;
+}
+
+#LeftColumn {
+    float: left;
+    display: inline;
+    width: 695px;
+    margin: 0px 10px 0px 0px;
+}
+
+#RightSidebar {
+    float: left;
+    display: inline;
+    width: 185px;
+    padding: 4px;
+    border: 1px solid #333;
+}
+
+#SearchBox {
+    padding: 4px;
+    border: 1px solid #333;
+    margin: 0px 0px 10px 0px;
+}
+
+#LeftSidebar {
+    float: left;
+    display: inline;
+    width: 185px;
+    border: 1px solid #333;
+    padding: 4px;
+    margin: 0px 10px 0px 0px;
+}
+
+#Content {
+    float: left;
+    display: inline;
+    width: 480px;
+    padding: 4px;
+    border: 1px solid #333;
+}
+
+#Footer {
+    width: 890px;
+    padding: 4px;
+    border: 1px solid #333;
+}
+
+/* @end */
+
+
+/* @group Text */
+
+p {
+    margin: 0px 0px 15px 0px;
+}
+
+/* @end */
+
+
+/* @group Links */
+
+a,
+a:link,
+a:active {
+    color: #666;
+}
+
+a:visited {
+    color: #999;
+}
+
+a:hover {
+    color: #CCC;
+}
+
+/* @end */
+
+
+/* @group Headers */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0px 0px 10px 0px;
+}
+
+h2 {
+    font-size: 21px;
+    margin: 0px 0px 8px 0px;
+}
+
+h3 {
+    font-size: 16px;
+    margin: 0px 0px 6px 0px;
+}
+
+h4 {
+    font-size: 14px;
+    margin: 0px 0px 4px 0px;
+}
+
+/* @end */

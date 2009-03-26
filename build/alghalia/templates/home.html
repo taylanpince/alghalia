@@ -4,6 +4,13 @@
 {% load article_tags %}
 
 
+{% block left_sidebar %}
+
+{% popular_articles %}
+
+{% endblock %}
+
+
 {% block content %}
 
 {% featured_articles %}
@@ -13,9 +20,5 @@
 {% for category in featured_categories %}
 {% latest_article category %}
 {% endfor %}
-
-{% popular_articles %}
-
-{% all_categories %}
 
 {% endblock %}

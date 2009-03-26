@@ -1,6 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+{% load i18n %}
+{% load article_tags %}
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -9,14 +12,43 @@
 	
 	<style type="text/css">
 	    @import "{{ MEDIA_URL }}css/reset.css";
+	    @import "{{ MEDIA_URL }}css/screen.css";
 	</style>
 </head>
 
 <body>
 
-<h1>Alghalia</h1>
+<div id="Container">
+    
+    <div id="Banner">Banner</div>
+    
+    <div id="FlashHeader">Flash Header</div>
+    
+    <div id="Page">
+        
+        <div id="LeftColumn">
 
-{% block content %}{% endblock %}
+            <div id="SearchBox">Search Box</div>
+        
+            <div id="LeftSidebar">{% block left_sidebar %}&nbsp;{% endblock %}</div>
+        
+            <div id="Content">{% block content %}{% endblock %}</div>
+        
+        </div>
+        
+        <div id="RightSidebar">
+            {% block right_sidebar %}
+
+            {% all_categories %}
+
+            {% endblock %}
+        </div>
+        
+    </div>
+    
+    <div id="Footer">Footer</div>
+    
+</div>
 
 </body>
 </html>

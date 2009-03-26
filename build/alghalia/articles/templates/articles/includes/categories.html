@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% if categories %}
+<h3>{% trans "Categories" %}</h3>
+<ul>
+    {% for category in categories %}
+    <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

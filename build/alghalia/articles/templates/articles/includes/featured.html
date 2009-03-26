@@ -1,9 +1,12 @@
+{% load i18n %}
+
 {% if articles %}
+<h2>{% trans "Featured Articles" %}</h2>
 <ul>
     {% for article in articles %}
     <li>
         <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
-        {{ article.summary }}
+        {{ article.summary|linebreaks }}
     </li>
     {% endfor %}
 </ul>

@@ -4,6 +4,13 @@
 {% load article_tags %}
 
 
+{% block left_sidebar %}
+
+{% article_months category %}
+
+{% endblock %}
+
+
 {% block content %}
 
 <h1>{% spaceless %}
@@ -19,8 +26,6 @@
     {% endif %}
     {% endif %}
 {% endspaceless %}</h1>
-
-{% article_months category %}
 
 {% if articles_list %}
 <ul>
