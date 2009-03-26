@@ -6,7 +6,9 @@ from articles.models import Article, ArticleCategory
 
 class ArticleCategoryAdmin(admin.ModelAdmin):
     list_display = ("name", "featured", "theme", )
-    list_filter = ("featured", "theme", )
+    list_filter = ["featured", "theme", ]
+
+    save_on_top = True
 
     prepopulated_fields = {
         "slug": ("name", ),
@@ -21,9 +23,11 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ("title", "featured", "published", "publication_date", "expiration_date", "creation_date", "modification_date", "view_count", )
-    list_filter = ("featured", "published", )
+    list_filter = ["featured", "published", ]
 
     search_fields = ("title", "summary", "body", "tags", )
+
+    save_on_top = True
 
     prepopulated_fields = {
         "slug": ("title", ),
