@@ -9,6 +9,8 @@ urlpatterns = patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/(.*)', admin.site.root),
 
+    (r'^captcha/', include('captcha.urls')),
+
     (r'^articles/', include('articles.urls')),
     (r'^comments/', include('comments.urls')),
     

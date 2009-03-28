@@ -24,6 +24,11 @@
             {{ form.remember }}
             {{ form.remember.label_tag }}
         </li>
+        <li>
+            {{ form.captcha.label_tag }}
+            {% if form.captcha.errors %}<p class="error">{{ form.captcha.errors|join:"<br />" }}</p>{% endif %}
+            {{ form.captcha }}
+        </li>
         <li><input type="submit" value="{% trans "Submit" %}" /></li>
     </ul>
 </form>

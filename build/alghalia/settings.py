@@ -71,10 +71,14 @@ INSTALLED_APPS = (
 
     'django_extensions',
     'tagging',
+    'captcha',
     
     'articles',
     'comments',
 )
+
+CAPTCHA_FONT_SIZE = 32
+CAPTCHA_FONT_PATH = os.path.join(MEDIA_ROOT, 'fonts/georgia-bold.ttf')
 
 try:
     from settings_local import *

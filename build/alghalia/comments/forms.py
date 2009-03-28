@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 
+from captcha.fields import CaptchaField
+
 from comments.models import Comment
 
 
@@ -12,6 +14,7 @@ class CommentForm(forms.ModelForm):
     remember = forms.BooleanField(label=_("Remember me"), required=False)
     content_type_id = forms.IntegerField(widget=forms.HiddenInput)
     object_id = forms.IntegerField(widget=forms.HiddenInput)
+    captcha = CaptchaField(label=_("Verification"))
 
     class Meta:
         model = Comment
