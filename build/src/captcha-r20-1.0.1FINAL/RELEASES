@@ -1,0 +1,141 @@
+captcha-r20-1.0.1FINAL
+======================
+
+Tagged captcha-r20-1.0.1FINAL on March 25th, 2009 by Zach Mathew <zmathew@trapeze.com>.
+
+
+New Features
+------------
+* None
+
+
+Known issues
+------------
+* None
+
+
+Bugs Fixed
+----------
+* None
+
+
+Upgrade Instructions
+--------------------
+* None
+
+
+Library updates
+---------------
+* None
+
+
+
+***
+
+
+
+captcha-r20-1.0.1RC
+===================
+
+Tagged release-r20-1.0.1RC on March 20th, 2009 by Zach Mathew <zmathew@trapeze.com>.
+
+New Features
+------------
+* None
+
+
+Non integrated pages
+--------------------
+* None
+
+
+Upgrade Instructions
+--------------------
+* None
+
+
+Library updates
+---------------
+* None
+
+
+Known issues
+------------
+* None
+
+
+Bugs Fixed
+----------
+* Fixed release notes
+
+***
+
+captcha-r20-1.0.0RC
+===================
+
+Tagged release-r20-1.0.0RC on March 20th, 2009 by Zach Mathew <zmathew@trapeze.com>.
+
+New Features
+------------
+* None
+
+
+Non integrated pages
+--------------------
+* None
+
+
+Upgrade Instructions
+--------------------
+* None
+
+
+Library updates
+---------------
+* None
+
+
+Known issues
+------------
+* None
+
+
+Bugs Fixed
+----------
+* None
+
+
+
+captcha-r20-1.0.0BETA
+=====================
+
+Tagged release-r20-1.0.0BETA on February 11th, 2009 by Sylvain Toé <stoe@trapeze.com>.
+
+* Same as r20-2ALPHA
+
+
+RELEASE r20-2ALPHA
+==================
+
+Tagged release-r20-2ALPHA on February 2nd, 2009 by Sylvain Toé <stoe@trapeze.com>.
+
+New feature
+-----------
+
+* Added support for customizable error messages.
+
+
+RELEASE 0.8ALPHA
+================
+
+Tagged release-0.8ALPHA on January 29, 2009 by Taylan Pince <tpince@trapeze.com>.
+
+This application has been forked from django-simple-captcha
+(http://code.google.com/p/django-simple-captcha/). A detailed rundown of all
+features are in the README file.
+
+Features
+--------
+
+* ``CaptchaField`` that can be attached to any form for easy CAPTCHA support
+

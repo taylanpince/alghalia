@@ -1,0 +1,224 @@
+Django Simple Captcha
+=====================
+
+About
+-----
+
+Django Simple Captcha is an extremely simple, yet highly customizable Django 
+application to add captcha images to any Django form.
+
+
+Usage
+-----
+
+Sample view:
+
+    from django import forms
+    from captcha.fields import CaptchaField
+    from django.shortcuts import render_to_response
+
+    class CaptchaTestForm(forms.Form):
+        myfield = AnyOtherField()
+        captcha = CaptchaField()
+
+    """
+    # or, as a ModelForm:
+    class CaptchaTestModelForm(forms.ModelForm):
+        captcha = CaptchaField()
+        class Meta:
+            model = MyModel
+    """
+
+    def home(request):
+        if request.POST:
+            form = CaptchaTestForm(request.POST)
+
+            # Validate the form: the captcha field will automatically 
+            # check the input
+            if form.is_valid():
+                human = True
+        else:
+            form = CaptchaTestForm()
+
+        return render_to_response('base.html',locals())
+
+
+Features
+--------
+
+* Very simple to setup and deploy, yet very configurable
+
+* Can use custom challenges (e.g. random chars, simple maths, dictionary word)
+
+* Custom generators, noise and filter functions alter the look of the generated 
+  image
+
+* Supports text-to-speech audio output of the challenge text, for improved 
+  accessibility
+
+
+Requirements
+------------
+
+Django 1.0+
+A fairly recent version of the Python Imaging Library (PIL) compiled with 
+FreeType support
+
+Flite is required for text-to-speech (audio) output, but not mandatory
+Installation
+
+Download the 'captcha' application an put it anywhere in your Python path
+Add 'captcha' to the INSTALLED_APPS in your settings.py
+Run manage.py syncdb to create the required database tables
+Add an entry to your urls.py:
+
+    urlpatterns += patterns('',
+        url(r'^captcha/', include('captcha.urls')),
+    )
+
+
+Configuration
+-------------
+
+The following configuration elements can be defined (in your settings.py)
+
+
+CAPTCHA_FONT_PATH
+
+Full path and filename of a TrueType (TTF), OpenType, or pilfont font file 
+used to render text.
+
+Defaults to: fonts/etl24-unicode.pil (included in the application, public 
+domain font).
+
+For best results, download and install the Bitstream Vera Fonts and point it 
+to e.g. '/usr/X11R6/lib/X11/fonts/TTF/Vera.ttf'
+
+
+CAPTCHA_FONT_SIZE
+
+Font-size in pixels of the rendered text.
+
+Defaults to '22'.
+
+
+CAPTCHA_LETTER_ROTATION
+
+A random rotation in this interval is applied to each letter in the challenge 
+text.
+
+Defaults to (-35,35).
+
+
+CAPTCHA_BACKGROUND_COLOR
+
+Background-color of the captcha. Can be expressed as html-style #rrggbb, 
+rgb(red, green, blue), or common html names (e.g. "red").
+
+Defaults to: '#ffffff'
+
+
+CAPTCHA_FOREGROUND_COLOR
+
+Foreground-color of the captcha.
+
+Defaults to '#001100'
+
+
+CAPTCHA_CHALLENGE_FUNCT
+
+String representing a python callable (i.e. a function) to use challenge 
+generator.
+
+See Generators for a list of available generators and a guide on how to write 
+your own.
+
+Defaults to: 'captcha.helpers.random_char_challenge'
+
+
+CAPTCHA_NOISE_FUNCTIONS
+
+List of strings of python callables that take a PIL DrawImage object and an 
+Image iamge as input, modify the DrawImage, then return it.
+
+Defaults to: ('captcha.helpers.noise_arcs','captcha.helpers.noise_dots',)
+
+
+CAPTCHA_FILTER_FUNCTIONS
+
+List of strings of python callables that take a PIL Image object as input, 
+modify it and return it.
+
+These are called right before the rendering, i.e. after the noise functions.
+
+Defaults to: ('captcha.helpers.post_smooth',)
+
+
+CAPTCHA_WORDS_DICTIONARY
+
+Required for the word_challenge challenge function only. Points a file 
+containing a list of words, one per line.
+
+Defaults to: '/usr/share/dict/words'
+
+
+CAPTCHA_FLITE_PATH
+
+Full path to the flite executable. When defined, will automatically add audio
+output to the captcha.
+
+Defaults to: None (no audio output)
+
+
+CAPTCHA_TIMEOUT
+
+Integer. Lifespan, in minutes, of the generated captcha.
+
+Defaults to: 5
+
+
+Generators
+----------
+
+The following generators are available:
+
+
+Random chars
+
+Classic captcha that picks four random chars. This is case insensitive.
+
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+
+
+Simple Math
+
+Another classic, that challenges the user to resolve a simple math challenge 
+by randomly picking two numbers between one and nine, and a random operator 
+among plus, minus, times.
+
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+
+
+Dictionary Word
+
+Picks a random word from a dictionary file. Note, you must define 
+CAPTCHA_WORDS_DICTIONARY in CaptchaConfiguration to use this generator.
+
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.word_challenge'
+
+
+Roll your own
+
+To have your own challenge generator, simply point CAPTCHA_CHALLENGE_FUNCT to 
+a function that returns a tuple of strings: the first one (the challenge) will
+be rendered in the captcha, the second is the valid response to the challenge,
+e.g. ('5+10=', '15'), ('AAAA', 'aaaa')
+
+Sample generator that returns six random digits:
+
+    def random_digit_challenge():
+        import random
+        ret = u''
+        for i in range(6):
+            ret += str(random.randint(0,9))
+        return ret, ret
