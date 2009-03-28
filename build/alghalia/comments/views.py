@@ -24,6 +24,15 @@ def show_comment(request, id):
     })
 
 
+def generate_comment_captcha(request):
+    """
+    Generates a new comment form to give out a new CAPTCHA
+    """
+    return simple.direct_to_template(request, "comments/captcha.html", {
+        "form": CommentForm(auto_id="%s", prefix="CommentForm"),
+    })
+
+
 def post_comment(request):
     """
     Handles comment submissions

@@ -24,7 +24,7 @@
             {{ form.remember }}
             {{ form.remember.label_tag }}
         </li>
-        <li>
+        <li class="captcha">
             {{ form.captcha.label_tag }}
             {% if form.captcha.errors %}<p class="error">{{ form.captcha.errors|join:"<br />" }}</p>{% endif %}
             {{ form.captcha }}
@@ -38,6 +38,7 @@
     new core.Comments("#CommentForm", "#CommentList", {
         counter_selector : "#CommentCount",
         top_selector : "#post-a-comment",
+        captcha_url : "{% url comments_captcha %}",
         comment_posted_copy : "{% trans "Your comment has been posted." %}",
         comment_failed_copy : "{% trans "There was an error with your request, please try again." %}"
     });

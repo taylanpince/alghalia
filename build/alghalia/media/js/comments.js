@@ -17,6 +17,7 @@ core.Comments = $.Class.extend({
     counter_selector : null,
     top_selector : null,
     total_comments : 0,
+    captcha_url : null,
     
     error_template : '<p class="%(type)">%(message)</p>',
     
@@ -38,6 +39,8 @@ core.Comments = $.Class.extend({
             "message" : this.comment_posted_copy,
             "type" : "success"
         }));
+        
+        this.reload_captcha();
     },
     
     parse_comment_form : function(data) {
@@ -53,11 +56,15 @@ core.Comments = $.Class.extend({
         	            }));
 	                }
 	            } else {
-    	            $(this.form_selector + "-" + error).parent().prepend(core.render_template(this.error_template, {
+    	            $(this.form_selector).find("[name*=" + error + "]").parent().prepend(core.render_template(this.error_template, {
     	                "message" : data.errors[error],
     	                "type" : "error"
     	            }));
 	            }
+	        }
+	        
+	        if (!("captcha" in data.errors)) {
+	            this.reload_captcha();
 	        }
 	    } else {
 	        this.total_comments = data.total;
@@ -74,8 +81,14 @@ core.Comments = $.Class.extend({
 	        
 	        $(this.form_selector + "-body").val("");
 	    }
-	    
+	            
 	    $(this.form_selector).find("input[type=submit], input[type=image]").attr("disabled", false);
+    },
+    
+    reload_captcha : function() {
+        if (this.captcha_url) {
+            $(this.form_selector).find("li.captcha").load(this.captcha_url);
+        }
     },
     
     error_comment_form : function() {
@@ -88,7 +101,7 @@ core.Comments = $.Class.extend({
     },
     
     submit_comment_form : function() {
-        $(this.form_selector).find("p.error").fadeOut("slow");
+        $(this.form_selector).find("p.error, p.success").fadeOut("slow");
 	    $(this.form_selector).find("input[type=submit], input[type=image]").attr("disabled", true);
         $(this.form_selector).find("li.submit").addClass("stand-by");
 	    
