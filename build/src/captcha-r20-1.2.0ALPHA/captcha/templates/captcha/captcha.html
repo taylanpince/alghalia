@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{{ field }}
+<br />
+{% if flite %}<a href="{% url captcha-audio key %}" title="{% trans "Play CAPTCHA as audio file" %}">{% endif %}
+<img src="{% url captcha-image key %}" alt="CAPTCHA" class="captcha" />
+{% if flite %}</a>{% endif %}

@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.forms.fields import CharField, MultiValueField
 from django.forms import ValidationError
 from django.forms.widgets import TextInput, MultiWidget, HiddenInput
+from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
@@ -34,16 +35,11 @@ class CaptchaTextInput(MultiWidget):
         key = store.hashkey
         value = [key, u'']
 
-        ret = '<img src="%s" alt="captcha" class="captcha" />' % reverse('captcha-image', kwargs=dict(key=key))
-
-        if settings.CAPTCHA_FLITE_PATH:
-            ret = '<a href="%s" title="%s">%s</a>' % (
-                reverse('captcha-audio', kwargs=dict(key=key)), 
-                unicode(_('Play captcha as audio file')), 
-                ret,
-            )
-
-        return mark_safe(ret + super(CaptchaTextInput, self).render(name, value, attrs=attrs))
+        return render_to_string("captcha/captcha.html", {
+            "key": key,
+            "flite": settings.CAPTCHA_FLITE_PATH,
+            "field": super(CaptchaTextInput, self).render(name, value, attrs=attrs),
+        })
 
 
 class CaptchaField(MultiValueField):

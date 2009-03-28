@@ -1,3 +1,31 @@
+captcha-r20-1.2.0ALPHA
+======================
+
+Tagged captcha-r20-1.0.2ALPHA on March 28th, 2009 by Taylan Pince <tpince@trapeze.com>.
+
+New Features
+------------
+* Updated CaptchaTextInput widget's render method to use a template when
+  displaying the Captcha field
+
+Known issues
+------------
+* None
+
+Bugs Fixed
+----------
+* None
+
+Upgrade Instructions
+--------------------
+* None
+
+Library updates
+---------------
+* None
+
+* * *
+
 captcha-r20-1.0.1FINAL
 ======================
 
