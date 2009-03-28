@@ -1,8 +1,8 @@
 {% load i18n %}
 
 {% if comments %}
-<h2>{% trans "Comments" %} ({{ comments.count }})</h2>
-<ul class="border-list">
+<h2>{% trans "Comments" %} (<span id="CommentCount">{{ comments.count }}</span>)</h2>
+<ul class="border-list" id="CommentList">
     {% for comment in comments %}
     <li>
         {% include "comments/includes/detail.html" %}

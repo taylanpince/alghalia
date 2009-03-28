@@ -1,7 +1,9 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.utils import simplejson
 from django.views.generic import simple
 
+from comments.encoders import LazyEncoder
 from comments.forms import CommentForm
 from comments.models import Comment
 
@@ -34,7 +36,12 @@ def post_comment(request):
 
         comment.save()
 
-        if not request.is_ajax():
+        if request.is_ajax():
+            response = simple.direct_to_template(request, "comments/form.json", {
+                "comment": comment,
+                "total": Comment.objects.get_for_model(comment.obj).count(),
+            }, mimetype="application/json")
+        else:
             response = HttpResponseRedirect(comment.get_absolute_url())
 
         if form.cleaned_data.get("remember", False):
@@ -45,7 +52,22 @@ def post_comment(request):
             response.delete_cookie("comment_email")
 
         return response
+    else:
+        if request.is_ajax():
+            if form.errors:
+                errors = simplejson.dumps(form.errors, cls=LazyEncoder, ensure_ascii=False)
+            else:
+                errors = None
 
-    return simple.direct_to_template(request, "comments/form.html", {
-        "form": form,
-    })
+            template = "comments/form.json"
+            mimetype = "application/json"
+        else:
+            errors = None
+            template = "comments/form.html"
+            mimetype = None
+
+        return simple.direct_to_template(request, template, {
+            "form": form,
+            "errors": errors,
+            "total": 0,
+        }, mimetype=mimetype)

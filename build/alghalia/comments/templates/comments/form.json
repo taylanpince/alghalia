@@ -1,0 +1,5 @@
+{
+    "total" : {{ total }},
+    {% if errors %}"errors" : {{ errors|safe }},{% endif %}
+    "comment" : {% if comment %}"{% url comments_show comment.pk %}"{% else %}null{% endif %}
+}

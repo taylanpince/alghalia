@@ -6,6 +6,10 @@
 
 {% block title %}{{ block.super }} | {{ article.title }}{% endblock %}
 
+{% block javascript %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/comments.js"></script>
+{% endblock %}
+
 
 {% block content %}
 

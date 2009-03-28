@@ -1,8 +1,8 @@
 {% load i18n %}
 
-<h2>{% trans "Post a Comment" %}</h2>
+<h2 id="post-a-comment">{% trans "Post a Comment" %}</h2>
 
-<form method="post" action="{% url comments_post %}">
+<form method="post" action="{% url comments_post %}" id="CommentForm">
     {{ form.object_id }}
     {{ form.content_type_id }}
     <ul>
@@ -27,3 +27,14 @@
         <li><input type="submit" value="{% trans "Submit" %}" /></li>
     </ul>
 </form>
+
+<script type="text/javascript">
+//<![CDATA[
+    new core.Comments("#CommentForm", "#CommentList", {
+        counter_selector : "#CommentCount",
+        top_selector : "#post-a-comment",
+        comment_posted_copy : "{% trans "Your comment has been posted." %}",
+        comment_failed_copy : "{% trans "There was an error with your request, please try again." %}"
+    });
+//]]>
+</script>
