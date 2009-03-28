@@ -3,9 +3,9 @@
 {% if articles %}
 <h3>
     {% if cat %}
-    {% blocktrans with category as cat %}Most Popular Articles in {{ cat.name }}{% endblocktrans %}
+    {% blocktrans with category as cat %}Most Commented Articles in {{ cat.name }}{% endblocktrans %}
     {% else %}
-    {% trans "Most Popular Articles" %}
+    {% trans "Most Commented Articles" %}
     {% endif %}
 </h3>
 <ul>

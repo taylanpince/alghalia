@@ -3,6 +3,7 @@ import re
 from django import template
 
 from articles.models import Article, ArticleCategory
+from comments.utils import with_comment_count
 
 
 register = template.Library()
@@ -53,6 +54,25 @@ def popular_articles(category=None):
         articles = Article.objects.filter(category=category)
 
     articles = articles.order_by("-view_count")
+
+    return {
+        "category": category,
+        "articles": articles,
+    }
+
+
+@register.inclusion_tag("articles/includes/most_commented.html")
+def most_commented_articles(category=None):
+    """
+    Gets the most commented articles, optionally filtered by category
+    """
+    articles = Article.objects.all()
+    articles = with_comment_count(articles)
+
+    if category:
+        articles = Article.objects.filter(category=category)
+
+    articles = articles.order_by("-comment_count")
 
     return {
         "category": category,
