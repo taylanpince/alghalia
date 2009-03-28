@@ -225,9 +225,13 @@ form li.checkbox input {
     margin: 0px;
 }
 
+#SearchForm input.submit {
+    margin: 0px;
+    height: 26px;
+}
+
 #SearchForm input.text {
-    height: 18px;
-    line-height: 18px;
+    height: 16px;
 }
 
 /* @end */

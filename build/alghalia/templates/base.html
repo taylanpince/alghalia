@@ -39,7 +39,14 @@
 
                 <div id="SearchBox">{% search_form %}</div>
         
-                <div id="LeftSidebar">{% block left_sidebar %}&nbsp;{% endblock %}</div>
+                <div id="LeftSidebar">
+                    {% block left_sidebar %}
+
+                    {% popular_articles %}
+                    {% most_commented_articles %}
+                
+                    {% endblock %}
+                </div>
         
                 <div id="Content">{% block content %}{% endblock %}</div>
         
