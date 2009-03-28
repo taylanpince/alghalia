@@ -1,0 +1,10 @@
+{% load i18n %}
+
+<form method="get" action="{% url articles_search %}" id="SearchForm">
+    <ul>
+        <li><input type="submit" value="{% trans "Search" %}" /></li>
+        <li>
+            {{ form.query }}
+        </li>
+    </ul>
+</form>

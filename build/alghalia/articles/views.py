@@ -1,8 +1,10 @@
 from datetime import datetime
 
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic import simple, list_detail
 
+from articles.forms import SearchForm
 from articles.models import Article, ArticleCategory
 
 
@@ -17,6 +19,36 @@ def landing(request):
         "articles": articles,
         "categories": categories,
     })
+
+
+def search(request):
+    """
+    Renders search results
+    """
+    form = SearchForm(request.GET, auto_id="SearchForm-%s")
+
+    if form.is_valid():
+        query = form.cleaned_data.get("query")
+        articles = Article.objects.filter(
+            Q(title__icontains=query) | 
+            Q(summary__icontains=query) | 
+            Q(tags__icontains=query) | 
+            Q(body__icontains=query)
+        )
+    else:
+        query = None
+        articles = None
+
+    return list_detail.object_list(
+        request,
+        queryset=articles,
+        paginate_by=10,
+        template_name="articles/search.html",
+        template_object_name="articles",
+        extra_context={
+            "query": query,
+        }
+    )
 
 
 def archive(request, category_slug, year=None, month=None):

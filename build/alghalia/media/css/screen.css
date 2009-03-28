@@ -209,4 +209,25 @@ form li.checkbox input {
     margin: 2px 8px 0px 0px;
 }
 
+#SearchForm {
+    width: 677px;
+    overflow: hidden;
+    position: static;
+}
+
+#SearchForm li {
+    float: right;
+    display: inline;
+    margin: 0px 10px 0px 0px;
+}
+
+#SearchForm li.first-child {
+    margin: 0px;
+}
+
+#SearchForm input.text {
+    height: 18px;
+    line-height: 18px;
+}
+
 /* @end */

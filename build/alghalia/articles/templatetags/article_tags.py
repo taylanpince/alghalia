@@ -2,6 +2,7 @@ import re
 
 from django import template
 
+from articles.forms import SearchForm
 from articles.models import Article, ArticleCategory
 from comments.utils import with_comment_count
 
@@ -134,4 +135,16 @@ def all_categories():
 
     return {
         "categories": categories,
+    }
+
+
+@register.inclusion_tag("articles/includes/search.html")
+def search_form():
+    """
+    Renders the search form
+    """
+    form = SearchForm(auto_id="SearchForm-%s")
+
+    return {
+        "form": form,
     }
