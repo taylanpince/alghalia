@@ -21,11 +21,11 @@ def deploy(hash="HEAD"):
     local("cd ..; git archive --format=tar --prefix=deploy/ $(hash) conf build/libs build/alghalia build/src | gzip > tmp/archive.tar.gz")
     
     # Untar the archive to minify js files
-    #local("cd ../tmp; tar -xzf archive.tar.gz; rm -f archive.tar.gz")
-    #local("python /usr/local/lib/yuicompressor/bin/jsminify.py --dir=../tmp/deploy/web/imdb/media/js")
+    local("cd ../tmp; tar -xzf archive.tar.gz; rm -f archive.tar.gz")
+    local("python /usr/local/lib/yuicompressor/bin/jsminify.py --dir=../tmp/deploy/build/alghalia/media/js")
     
     # Tarball the release again
-    #local("cd ../tmp; tar -cf archive.tar deploy; gzip archive.tar")
+    local("cd ../tmp; tar -cf archive.tar deploy; gzip archive.tar")
     
     # Upload the archive to the server
     put("../tmp/archive.tar.gz", "$(remote_dir)/archive.tar.gz")
