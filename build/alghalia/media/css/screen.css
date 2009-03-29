@@ -111,6 +111,17 @@ p.success {
     margin-bottom: 4px;
 }
 
+div.hr {
+    height: 12px;
+    padding: 10px 0px 0px 0px;
+    margin: 0px 0px 20px 0px;
+    background: transparent url("../images/bg-separator.png") 50% 100% no-repeat;
+}
+
+div.hr hr {
+    display: none;
+}
+
 /* @end */
 
 
@@ -209,10 +220,16 @@ form li.checkbox input {
     margin: 2px 8px 0px 0px;
 }
 
-#SearchForm {
+/* @end */
+
+
+/* @group Search */
+
+#SearchForm ul {
     width: 677px;
     overflow: hidden;
     position: static;
+    margin: 0px;
 }
 
 #SearchForm li {
@@ -232,6 +249,28 @@ form li.checkbox input {
 
 #SearchForm input.text {
     height: 16px;
+}
+
+/* @end */
+
+
+/* @group Footer */
+
+#Footer ul {
+    width: 882px;
+    overflow: hidden;
+    position: static;
+    margin-bottom: 0px;
+}
+
+#Footer li {
+    float: right;
+    display: inline;
+    margin: 0px 10px 0px 0px;
+}
+
+#Footer li.first-child {
+    margin-right: 0px;
 }
 
 /* @end */
