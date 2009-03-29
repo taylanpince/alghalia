@@ -15,7 +15,11 @@
 
 <h1>{{ article.title }}</h1>
 
+{{ article.summary|linebreaks }}
+
 {{ article.body|linebreaks }}
+
+<p class="small">{{ article.creation_date|date:"F j, Y - H:i" }}</p>
 
 <hr />
 

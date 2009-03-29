@@ -12,7 +12,10 @@
 
 <ul>
 {% for article in articles|slice:"10" %}
-    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+    <li>
+        <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
+        {{ article.summary|linebreaks }}
+    </li>
 {% endfor %}
 </ul>
 

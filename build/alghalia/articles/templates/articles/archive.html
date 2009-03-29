@@ -26,7 +26,10 @@
 {% if articles_list %}
 <ul>
 {% for article in articles_list %}
-    <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+    <li>
+        <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
+        {{ article.summary|linebreaks }}
+    </li>
 {% endfor %}
 </ul>
 {% else %}
