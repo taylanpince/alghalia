@@ -1,7 +1,7 @@
 {% load i18n %}
 
-{% if comments %}
 <h2>{% trans "Comments" %} (<span id="CommentCount">{{ comments.count }}</span>)</h2>
+
 <ul class="border-list" id="CommentList">
     {% for comment in comments %}
     <li>
@@ -9,4 +9,3 @@
     </li>
     {% endfor %}
 </ul>
-{% endif %}
