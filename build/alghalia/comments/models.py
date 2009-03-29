@@ -40,3 +40,7 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return self.obj.get_absolute_url() + "#comment-%d" % self.pk
+
+    @property
+    def author_name(self):
+        return self.author or _("Anonymous")

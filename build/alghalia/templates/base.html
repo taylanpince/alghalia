@@ -3,6 +3,7 @@
 
 {% load i18n %}
 {% load article_tags %}
+{% load comment_tags %}
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -41,6 +42,8 @@
         
                 <div id="LeftSidebar">
                     {% block left_sidebar %}
+
+                    {% latest_comments %}
 
                     {% popular_articles %}
                     {% most_commented_articles %}

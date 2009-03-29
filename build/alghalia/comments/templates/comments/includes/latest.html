@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% if comments %}
+<h3>{% trans "Latest Comments" %}</h3>
+<ul>
+    {% for comment in comments|slice:"5" %}
+    <li>
+        <a href="{{ comment.get_absolute_url }}">{% spaceless %}
+            {% blocktrans with comment.obj as obj and comment.author_name as author %}
+            Comment on {{ obj }} by {{ author }}
+            {% endblocktrans %}
+        {% endspaceless %}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

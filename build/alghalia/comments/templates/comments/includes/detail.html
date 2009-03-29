@@ -4,7 +4,4 @@
 
 {{ comment.body|linebreaks }}
 
-<p class="small">
-    {{ comment.creation_date|date:"F j, Y - H:i" }}, 
-    {% if comment.author %}{{ comment.author }}{% else %}{% trans "Anonymous" %}{% endif %}
-</p>
+<p class="small">{{ comment.creation_date|date:"F j, Y - H:i" }}, {{ comment.author_name }}</p>

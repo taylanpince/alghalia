@@ -39,3 +39,15 @@ def comments(context, object):
         "object": object,
         "comments": comments,
     }
+
+
+@register.inclusion_tag("comments/includes/latest.html")
+def latest_comments():
+    """
+    Renders a list of latest comments
+    """
+    comments = Comment.objects.all().order_by("-creation_date")
+
+    return {
+        "comments": comments,
+    }
