@@ -1,11 +1,11 @@
 Articles:
-- Integrate TinyMCE controls
-- Integrate admin controls for adding photos to an article
+- Integrate TinyMCE controls @done(2009-04-04)
+- Integrate admin controls for adding photos to an article @done(2009-04-04)
 - Integrate pagination for search results, article listings
-- Integrate sub categories
-- Add subtitle field to article model
-- Add author field to article model
-- Add sorting field to category model
+- Integrate sub categories @done(2009-04-04)
+- Add subtitle field to article model @done(2009-04-04)
+- Add author field to article model @done(2009-04-04)
+- Add sorting field to category model @done(2009-04-04)
 - Update article list to show date, author, picture, short summary
 - Integrate RSS feeds
 	- Per category
@@ -13,7 +13,8 @@ Articles:
 Comments:
 - Latest comments on the left sidebar @done(2009-03-30)
 - Implement pagination for comments
-- Add title field to comment model
-- Comments should stay under moderation until approved
+- Add title field to comment model @done(2009-04-04)
+- Comments should stay under moderation until approved @done(2009-04-04)
+- Implement batch-admin for comment moderation @done(2009-04-04)
 Sharing:
-- Implement django-sharer
+- Implement django-sharer @done(2009-04-04)

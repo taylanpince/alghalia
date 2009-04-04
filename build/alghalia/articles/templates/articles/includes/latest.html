@@ -1,7 +1,13 @@
 {% load i18n %}
 
 {% if article %}
+
 <h3>{% trans "Latest Article" %}{% if category %} in {{ category.name }}{% endif %}</h3>
+
 <h5><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h5>
+
 {{ article.summary|safe }}
+
+<p class="small">{{ article.creation_date|date:"F j, Y - H:i" }}, {{ article.author_name }}</p>
+
 {% endif %}

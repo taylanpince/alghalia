@@ -29,6 +29,7 @@
     <li>
         <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
         {{ article.summary|safe }}
+        <p class="small">{{ article.creation_date|date:"F j, Y - H:i" }}, {{ article.author_name }}</p>
     </li>
 {% endfor %}
 </ul>
