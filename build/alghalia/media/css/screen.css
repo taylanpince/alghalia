@@ -115,7 +115,6 @@ div.hr {
     height: 12px;
     padding: 10px 0px 0px 0px;
     margin: 0px 0px 20px 0px;
-    background: transparent url("../images/bg-separator.png") 50% 100% no-repeat;
 }
 
 div.hr hr {
@@ -198,6 +197,7 @@ ul li ul {
 }
 
 ul li ul li {
+    color: #666;
     margin-left: 15px;
     list-style-type: disc;
 }
