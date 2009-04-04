@@ -42,12 +42,15 @@ def deploy(hash="HEAD"):
     
     # Move the uploaded files directory from the active version to the new version, create a symlink
     run("mv $(remote_dir)/app/files $(remote_dir)/deploy/files")
-    run("cd $(remote_dir)/deploy/alghalia/media; ln -s ../../files")
+    run("cd $(remote_dir)/deploy/alghalia/media; ln -s ../../files uploads")
     
     # Remove the active version of the app and move the new one in its place
     run("rm -rf $(remote_dir)/app")
     run("mv $(remote_dir)/deploy $(remote_dir)/app")
-    
+
+    # Sync the database and apply migrations
+    run("cd $(remote_dir)/app/alghalia/; export PYTHONPATH=../libs; ./manage.py syncdb; ./manage.py migrate")
+
     # Restart Apache
     sudo("/usr/local/etc/rc.d/apache22 restart")
     

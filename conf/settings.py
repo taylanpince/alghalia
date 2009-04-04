@@ -1,4 +1,4 @@
-DATABASE_ENGINE = 'postgresql'
+DATABASE_ENGINE = 'postgresql_psycopg2'
 DATABASE_NAME = 'alghalia'
 DATABASE_USER = 'alghaliadbu'
 DATABASE_PASSWORD = 'PtUhHaIdW0'
