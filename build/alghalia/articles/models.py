@@ -48,6 +48,7 @@ class Article(models.Model):
     summary = models.TextField(_("Summary"), blank=True)
     body = models.TextField(_("Body"), blank=True)
     category = models.ForeignKey(ArticleCategory, verbose_name=_("Category"))
+    author = models.ForeignKey("auth.User", related_name=_("Author"), blank=True, null=True)
     tags = TagField(_("Tags"))
 
     featured = models.BooleanField(_("Featured"), default=False)
@@ -79,3 +80,12 @@ class Article(models.Model):
             "month": self.publication_date.strftime("%m"),
             "slug": self.slug,
         })
+
+    @property
+    def author_name(self):
+        if self.author.first_name and self.author.last_name:
+            return "%s %s" % (self.author.first_name, self.author.last_name)
+        elif self.author.first_name or self.author.last_name:
+            return self.author.first_name or self.author.last_name
+        else:
+            return self.author.username
