@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
+from articles.forms import ArticleForm
 from articles.models import Article, ArticleCategory
 
 
@@ -22,6 +23,8 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
 
 
 class ArticleAdmin(admin.ModelAdmin):
+    form = ArticleForm
+
     list_display = ("title", "author", "featured", "published", "publication_date", "expiration_date", "creation_date", "modification_date", "view_count", )
     list_filter = ["featured", "published", ]
 

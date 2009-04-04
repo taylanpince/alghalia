@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'sharer',
     'south',
     'tagging',
+    'tinymce',
     
     'articles',
     'comments',
