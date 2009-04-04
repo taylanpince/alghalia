@@ -11,12 +11,12 @@ class SearchForm(forms.Form):
 
 
 class ArticleForm(forms.ModelForm):
-    summary = forms.CharField(widget=AdminTinyMCE(attrs={
+    summary = forms.CharField(label=_("Summary"), widget=AdminTinyMCE(attrs={
         "cols": 90,
         "rows": 15,
     }))
 
-    body = forms.CharField(widget=AdminTinyMCE(attrs={
+    body = forms.CharField(label=_("Body"), widget=AdminTinyMCE(attrs={
         "cols": 90,
         "rows": 40,
     }))

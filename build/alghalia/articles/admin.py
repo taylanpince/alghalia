@@ -54,7 +54,3 @@ class ArticleAdmin(admin.ModelAdmin):
             obj.author = request.user
 
         obj.save()
-
-
-admin.site.register(Article, ArticleAdmin)
-admin.site.register(ArticleCategory, ArticleCategoryAdmin)

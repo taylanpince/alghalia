@@ -1,17 +1,14 @@
 from django.conf.urls.defaults import *
-from django.contrib import admin
 
+from admin import alghalia_admin
 from articles.feeds import RssLatestArticles, RssLatestArticlesByCategory
-
-
-admin.autodiscover()
 
 
 urlpatterns = patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     (r'^admin/tinymce/', include('tinymce.urls')),
-    (r'^admin/(.*)', admin.site.root),
+    (r'^admin/(.*)', alghalia_admin.root),
 
     (r'^captcha/', include('captcha.urls')),
     (r'^share/', include('sharer.urls')),

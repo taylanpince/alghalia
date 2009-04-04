@@ -59,6 +59,3 @@ class CommentAdmin(BatchModelAdmin):
 
     publish_selected.short_description = _("Publish selected %(verbose_name_plural)s")
     unpublish_selected.short_description = _("Unpublish selected %(verbose_name_plural)s")
-
-
-admin.site.register(Comment, CommentAdmin)
