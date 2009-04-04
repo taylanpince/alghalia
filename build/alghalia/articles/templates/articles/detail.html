@@ -28,7 +28,7 @@
 
 {{ article.body|linebreaks }}
 
-<p class="small">{{ article.creation_date|date:"F j, Y - H:i" }}</p>
+<p class="small">{{ article.creation_date|date:"F j, Y - H:i" }}, {{ article.author_name }}</p>
 
 {% share article.title %}
 
