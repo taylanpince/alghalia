@@ -1,6 +1,8 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
 
+from articles.feeds import RssLatestArticles, RssLatestArticlesByCategory
+
 
 admin.autodiscover()
 
@@ -19,5 +21,12 @@ urlpatterns = patterns('',
     
     url(r'^$', 'django.views.generic.simple.direct_to_template', {
         'template': 'home.html',
-    }, name='home')
+    }, name='home'),
+
+    url(r"^feeds/(?P<url>.*)/$", "django.contrib.syndication.views.feed", {
+        "feed_dict": {
+            "articles": RssLatestArticles,
+            "articles-by-category": RssLatestArticlesByCategory,
+        },
+    }, name="feeds"),
 )

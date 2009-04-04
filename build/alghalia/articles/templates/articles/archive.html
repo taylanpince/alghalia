@@ -6,6 +6,8 @@
 
 {% block title %}{{ block.super }}{% if active_date %} | {% if month %}{{ active_date|date:"F Y" }}{% else %}{% if year %}{{ active_date|date:"Y" }}{% endif %}{% endif %}{% endif %}{% endblock %}
 
+{% block feed %}<link rel="alternate" href="{% url feeds "articles-by-category" %}{{ category.slug }}/" type="application/rss+xml" title="{% blocktrans with category.name as cat %}Latest Articles Listed Under {{ cat }}{% endblocktrans %}" />{% endblock %}
+
 
 {% block content %}
 
