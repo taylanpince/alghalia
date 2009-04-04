@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
 
+    'batchadmin',
     'captcha',
     'django_extensions',
     'sharer',
