@@ -6,10 +6,10 @@ Articles:
 - Add subtitle field to article model @done(2009-04-04)
 - Add author field to article model @done(2009-04-04)
 - Add sorting field to category model @done(2009-04-04)
-- Update article list to show date, author, picture, short summary
-- Integrate RSS feeds
-	- Per category
-	- Global
+- Update article list to show date, author, picture, short summary @done(2009-04-04)
+- Integrate RSS feeds @done(2009-04-04)
+	Per category
+	Global
 Comments:
 - Latest comments on the left sidebar @done(2009-03-30)
 - Implement pagination for comments
