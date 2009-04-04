@@ -193,6 +193,15 @@ ul.border-list li {
     border-top: 1px solid #CCC;
 }
 
+ul li ul {
+    margin-bottom: 0px;
+}
+
+ul li ul li {
+    margin-left: 15px;
+    list-style-type: disc;
+}
+
 /* @end */
 
 

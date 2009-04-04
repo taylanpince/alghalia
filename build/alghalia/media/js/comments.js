@@ -21,18 +21,18 @@ core.Comments = $.Class.extend({
     
     error_template : '<p class="%(type)">%(message)</p>',
     
-    comment_posted_copy : "Your comment has been posted.",
+    comment_posted_copy : "Your comment has been posted, it will be listed here once a moderator approves it.",
     comment_failed_copy : "There was an error with your request, please try again.",
     
     render_comment : function(data) {
-        $(this.list_selector).find("li:last-child").removeClass("last-child");
-        $("<li></li>").appendTo(this.list_selector).append(data).addClass("last-child");
+        //$(this.list_selector).find("li:last-child").removeClass("last-child");
+        //$("<li></li>").appendTo(this.list_selector).append(data).addClass("last-child");
         
-        core.scroll_to(this.list_selector + " li:last-child");
+        //core.scroll_to(this.list_selector + " li:last-child");
         
-        if (this.counter_selector && this.total_comments > 0) {
-            $(this.counter_selector).text(this.total_comments);
-        }
+        //if (this.counter_selector && this.total_comments > 0) {
+        //    $(this.counter_selector).text(this.total_comments);
+        //}
         
         $(this.form_selector).find("li.stand-by").removeClass("stand-by");
         $(this.form_selector).prepend(core.render_template(this.error_template, {
@@ -67,19 +67,22 @@ core.Comments = $.Class.extend({
 	            this.reload_captcha();
 	        }
 	    } else {
-	        this.total_comments = data.total;
+	        //this.total_comments = data.total;
 	        
-	        if (data.comment) {
-                $.ajax({
-                    url : data.comment,
-                    type : "GET",
-                    processData : false,
-                    dataType : "html",
-                    success : this.render_comment.bind(this)
-                });
-	        }
+	        //if (data.comment) {
+            //    $.ajax({
+            //        url : data.comment,
+            //        type : "GET",
+            //        processData : false,
+            //        dataType : "html",
+            //        success : this.render_comment.bind(this)
+            //    });
+	        //}
 	        
 	        $(this.form_selector + "-body").val("");
+	        $(this.form_selector + "-title").val("");
+	        
+	        this.render_comment(null);
 	    }
 	            
 	    $(this.form_selector).find("input[type=submit], input[type=image]").attr("disabled", false);

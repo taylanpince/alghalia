@@ -10,8 +10,9 @@ class Comment(models.Model):
     """
     A comment linked to a generic object
     """
+    title = models.CharField(_("Title"), max_length=255, blank=True)
     body = models.TextField(_("Comment"))
-    published = models.BooleanField(_("Published"), default=True)
+    published = models.BooleanField(_("Published"), default=False)
 
     author = models.CharField(_("Name"), blank=True, max_length=255)
     email = models.EmailField(_("Email"), blank=True)

@@ -7,6 +7,11 @@
     {{ form.content_type_id }}
     <ul>
         <li>
+            {{ form.title.label_tag }}
+            {% if form.title.errors %}<p class="error">{{ form.title.errors|join:"<br />" }}</p>{% endif %}
+            {{ form.title }}
+        </li>
+        <li>
             {{ form.body.label_tag }}
             {% if form.body.errors %}<p class="error">{{ form.body.errors|join:"<br />" }}</p>{% endif %}
             {{ form.body }}
@@ -39,7 +44,7 @@
         counter_selector : "#CommentCount",
         top_selector : "#post-a-comment",
         captcha_url : "{% url comments_captcha %}",
-        comment_posted_copy : "{% trans "Your comment has been posted." %}",
+        comment_posted_copy : "{% trans "Your comment has been posted, it will be listed here once a moderator approves it." %}",
         comment_failed_copy : "{% trans "There was an error with your request, please try again." %}"
     });
 //]]>

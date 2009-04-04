@@ -5,16 +5,16 @@ from comments.models import Comment
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ("pk", "author", "email", "body", "creation_date", "modification_date", "published", )
+    list_display = ("pk", "author", "email", "title", "body", "creation_date", "modification_date", "published", )
     list_filter = ["published", ]
     
-    search_fields = ("author", "email", "body", )
+    search_fields = ("author", "email", "title", "body", )
     
     save_on_top = True
     
     fieldsets = (
         (_("Content"), {
-            "fields": ("body", "published", ),
+            "fields": ("title", "body", "published", ),
         }),
         (_("Author"), {
             "fields": ("author", "email", "ip_address", ),
