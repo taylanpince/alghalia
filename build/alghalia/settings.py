@@ -41,6 +41,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'comments.context_processors.comment_cookies',
+    'sharer.context_processors.share_uri',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -74,6 +75,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'tagging',
     'captcha',
+    'sharer',
     
     'articles',
     'comments',

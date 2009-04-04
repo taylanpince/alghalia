@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^admin/(.*)', admin.site.root),
 
     (r'^captcha/', include('captcha.urls')),
+    (r'^share/', include('sharer.urls')),
 
     (r'^articles/', include('articles.urls')),
     (r'^comments/', include('comments.urls')),

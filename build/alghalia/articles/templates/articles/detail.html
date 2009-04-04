@@ -2,12 +2,20 @@
 
 {% load i18n %}
 {% load comment_tags %}
+{% load sharer_tags %}
 
 
 {% block title %}{{ block.super }} | {{ article.title }}{% endblock %}
 
 {% block javascript %}
 <script type="text/javascript" src="{{ MEDIA_URL }}js/comments.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}sharer/js/sharer.js"></script>
+{% endblock %}
+
+{% block css %}
+<style type="text/css">
+    @import "{{ MEDIA_URL }}sharer/css/sharer.css";
+</style>
 {% endblock %}
 
 
@@ -20,6 +28,8 @@
 {{ article.body|linebreaks }}
 
 <p class="small">{{ article.creation_date|date:"F j, Y - H:i" }}</p>
+
+{% share article.title %}
 
 <hr />
 

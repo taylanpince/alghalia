@@ -1,0 +1,43 @@
+{% load i18n %}
+{% load sharer_tags %}
+
+{% if networks %}
+
+<div class="share-box">
+    
+    <h4>{% trans "Share" %}</h4>
+    
+    {% if ENABLE_EMAILS %}
+    <p>
+        <a href="{% url sharer_share %}?url={{ url|urlencode }}&title={{ title|urlencode }}" class="share-email">
+            {% trans "Send Email" %}
+        </a>
+    </p>
+    {% endif %}
+    
+    {% if networks %}
+    <ul>
+        {% for network in networks %}
+        <li>
+            <a href="{% share_url network title url %}"{% if network.icon %} class="share-network" style="background-image: url({{ network.icon.url }});"{% endif %}>
+                {{ network.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    new core.Sharer("div.share-box", {
+        url : "{{ url }}",
+        title : "{{ title }}",
+        offset_top : 25,
+        offset_left : 15
+    });
+//]]>
+</script>
+
+{% endif %}

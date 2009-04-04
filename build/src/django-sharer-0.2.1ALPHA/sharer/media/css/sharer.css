@@ -1,0 +1,86 @@
+/*
+ *	Title: Sharer Styles
+ *	Date: March 30, 2009
+ *  Author: Taylan Pince (taylanpince at gmail dot com)
+ */
+
+
+/* @group Sharer */
+
+div.share-box,
+div.share-widget {
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    padding: 8px;
+}
+
+div.share-box {
+    margin-bottom: 10px;
+}
+
+div.share-box p,
+div.share-widget p {
+    margin-bottom: 8px;
+}
+
+div.share-widget {
+    position: absolute;
+    display: none;
+    width: 150px;
+}
+
+div.share-widget-form {
+    width: 300px;
+}
+
+div.share-box h4 {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+div.share-widget h4 {
+    display: none;
+}
+
+div.share-box ul,
+div.share-widget ul {
+    margin-bottom: 0px;
+}
+
+div.share-box ul li,
+div.share-widget ul li {
+    padding: 0px;
+    margin-bottom: 6px;
+    border: none;
+}
+
+a.share-link,
+a.share-email,
+a.share-network {
+    padding-left: 21px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+
+a.share-link {
+    display: block;
+    margin-bottom: 10px;
+    background-position: 0px 1px;
+    background-image: url("../images/icon-share.png");
+}
+
+a.share-email {
+    background-image: url("../images/icon-email.png");
+}
+
+div.share-form input.text,
+div.share-form textarea {
+    width: 290px;
+}
+
+div.share-form li.submit input {
+    margin-right: 15px;
+}
+
+/* @end */

@@ -1,7 +1,10 @@
 {% load i18n %}
+{% load sharer_tags %}
 
 <a id="comment-{{ comment.pk }}"></a>
 
 {{ comment.body|linebreaks }}
 
 <p class="small">{{ comment.creation_date|date:"F j, Y - H:i" }}, {{ comment.author_name }}</p>
+
+{% share comment comment.get_absolute_url %}
