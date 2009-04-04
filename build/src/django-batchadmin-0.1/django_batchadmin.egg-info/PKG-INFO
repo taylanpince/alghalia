@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: django-batchadmin
+Version: 0.1
+Summary: Batch actions in the change list views of your Django admin site.
+Home-page: http://code.google.com/p/django-batchadmin/
+Author: Brian Beck
+Author-email: exogen@gmail.com
+License: MIT License
+Description: UNKNOWN
+Platform: UNKNOWN
