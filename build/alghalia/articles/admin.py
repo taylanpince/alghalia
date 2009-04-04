@@ -5,7 +5,7 @@ from articles.models import Article, ArticleCategory
 
 
 class ArticleCategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "featured", "theme", )
+    list_display = ("name", "parent", "featured", "theme", )
     list_filter = ["featured", "theme", ]
 
     save_on_top = True
@@ -16,7 +16,7 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            "fields": (("name", "slug", ), "theme", "featured", )
+            "fields": (("name", "slug", ), "parent", "theme", "featured", )
         }),
     )
 

@@ -23,6 +23,9 @@ class ArticleCategory(models.Model):
     slug = models.SlugField(_("Slug"), max_length=255, unique=True)
     theme = models.CharField(_("Colour Theme"), max_length=10, choices=THEME_CHOICES)
     featured = models.BooleanField(_("Featured"), default=False)
+    parent = models.ForeignKey("self", verbose_name=_("Parent Category"), limit_choices_to={
+        "parent__isnull": True,
+    }, blank=True, null=True, related_name="sub_categories")
 
     class Meta:
         verbose_name = _("Article Category")
