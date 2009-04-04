@@ -61,6 +61,10 @@
                 {% block right_sidebar %}
 
                 {% all_categories %}
+                
+                <ul>
+                    <li><a href="{% url feeds "articles" %}" class="rss">{% trans "RSS Feed" %}</a></li>
+                </ul>
 
                 {% endblock %}
             </div>

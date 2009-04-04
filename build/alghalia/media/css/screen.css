@@ -140,6 +140,11 @@ a:hover {
     color: #CCC;
 }
 
+a.rss {
+    padding-left: 18px;
+    background: transparent url("../images/icon-feed.png") top left no-repeat;
+}
+
 /* @end */
 
 
