@@ -24,9 +24,9 @@
 <h1>{{ article.title }}</h1>
 {% if article.subtitle %}<h3>{{ article.subtitle }}</h3>{% endif %}
 
-{{ article.summary|linebreaks }}
+{{ article.summary|safe }}
 
-{{ article.body|linebreaks }}
+{{ article.body|safe }}
 
 <p class="small">{{ article.creation_date|date:"F j, Y - H:i" }}, {{ article.author_name }}</p>
 

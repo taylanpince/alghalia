@@ -28,7 +28,7 @@
 {% for article in articles_list %}
     <li>
         <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
-        {{ article.summary|linebreaks }}
+        {{ article.summary|safe }}
     </li>
 {% endfor %}
 </ul>
