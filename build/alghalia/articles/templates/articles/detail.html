@@ -22,6 +22,7 @@
 {% block content %}
 
 <h1>{{ article.title }}</h1>
+{% if article.subtitle %}<h3>{{ article.subtitle }}</h3>{% endif %}
 
 {{ article.summary|linebreaks }}
 
