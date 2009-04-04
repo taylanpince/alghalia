@@ -131,7 +131,7 @@ def all_categories():
     """
     Renders all categories
     """
-    categories = ArticleCategory.objects.all()
+    categories = ArticleCategory.objects.filter(parent__isnull=True)
 
     return {
         "categories": categories,

@@ -4,7 +4,16 @@
 <h3>{% trans "Categories" %}</h3>
 <ul>
     {% for category in categories %}
-    <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+    <li>
+        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+        {% if category.sub_categories.count %}
+        <ul>
+            {% for sub_category in category.sub_categories.all %}
+            <li><a href="{{ sub_category.get_absolute_url }}">{{ sub_category.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
     {% endfor %}
 </ul>
 {% endif %}
