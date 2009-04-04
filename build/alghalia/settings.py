@@ -94,7 +94,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'plugins': 'advimage,advlink,fullscreen,paste,media,searchreplace,table,directionality',
     'theme_advanced_toolbar_location': 'top',
     'theme_advanced_buttons1': 'bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,formatselect',
-    'theme_advanced_buttons2': 'hr,blockquote,sub,sup,charmap,|,outdent,indent,|,undo,redo|link,unlink,anchor,|,image,media,|,cleanup,help,code',
+    'theme_advanced_buttons2': 'hr,blockquote,sub,sup,charmap,|,outdent,indent,|,undo,redo,|,link,unlink,anchor,|,image,media,|,cleanup,help,code',
     'theme_advanced_buttons3': 'pasteword,search,replace,|,tablecontrols,|,ltr,rtl',
     'relative_urls': False,
 }
