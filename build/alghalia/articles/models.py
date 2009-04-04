@@ -44,6 +44,7 @@ class Article(models.Model):
     """
     title = models.CharField(_("Title"), max_length=255)
     slug = models.SlugField(_("Slug"), max_length=255)
+    subtitle = models.CharField(_("Sub Title"), max_length=255, blank=True)
     summary = models.TextField(_("Summary"), blank=True)
     body = models.TextField(_("Body"), blank=True)
     category = models.ForeignKey(ArticleCategory, verbose_name=_("Category"))

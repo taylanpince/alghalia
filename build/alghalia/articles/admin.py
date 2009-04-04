@@ -25,7 +25,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ("title", "featured", "published", "publication_date", "expiration_date", "creation_date", "modification_date", "view_count", )
     list_filter = ["featured", "published", ]
 
-    search_fields = ("title", "summary", "body", "tags", )
+    search_fields = ("title", "subtitle", "summary", "body", "tags", )
 
     save_on_top = True
 
@@ -35,7 +35,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            "fields": (("title", "slug", ), "category", "summary", "body", "tags", )
+            "fields": (("title", "slug", ), "subtitle", "category", "summary", "body", "tags", )
         }),
         (_("Publication"), {
             "fields": ("featured", "published", "publication_date", "expiration_date", ),

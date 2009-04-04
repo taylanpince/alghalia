@@ -31,6 +31,7 @@ def search(request):
         query = form.cleaned_data.get("query")
         articles = Article.objects.filter(
             Q(title__icontains=query) | 
+            Q(subtitle__icontains=query) | 
             Q(summary__icontains=query) | 
             Q(tags__icontains=query) | 
             Q(body__icontains=query)
