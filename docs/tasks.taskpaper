@@ -1,0 +1,19 @@
+Articles:
+- Integrate TinyMCE controls
+- Integrate admin controls for adding photos to an article
+- Integrate pagination for search results, article listings
+- Integrate sub categories
+- Add subtitle field to article model
+- Add author field to article model
+- Add sorting field to category model
+- Update article list to show date, author, picture, short summary
+- Integrate RSS feeds
+	- Per category
+	- Global
+Comments:
+- Latest comments on the left sidebar @done(2009-03-30)
+- Implement pagination for comments
+- Add title field to comment model
+- Comments should stay under moderation until approved
+Sharing:
+- Implement django-sharer
