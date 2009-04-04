@@ -72,10 +72,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
 
-    'django_extensions',
-    'tagging',
     'captcha',
+    'django_extensions',
     'sharer',
+    'south',
+    'tagging',
     
     'articles',
     'comments',
