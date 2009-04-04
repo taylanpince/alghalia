@@ -75,6 +75,7 @@ INSTALLED_APPS = (
     'batchadmin',
     'captcha',
     'django_extensions',
+    'filebrowser',
     'sharer',
     'south',
     'tagging',
@@ -87,7 +88,24 @@ INSTALLED_APPS = (
 CAPTCHA_FONT_SIZE = 32
 CAPTCHA_FONT_PATH = os.path.join(MEDIA_ROOT, 'fonts/georgia-bold.ttf')
 
+TINYMCE_COMPRESSOR = True
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'plugins': 'advimage,advlink,fullscreen,visualchars,paste,media,searchreplace,table',
+    'theme_advanced_toolbar_location': 'top',
+    #'theme_advanced_buttons1': 'formatselect,bold,italic,underline,bullist,numlist,undo,redo,link,unlink,image,code,fullscreen,pasteword,media,search,replace,charmap',
+    #'theme_advanced_buttons2': '',
+    #'theme_advanced_buttons3': '',
+    'relative_urls': False,
+}
+
 try:
     from settings_local import *
 except ImportError:
     pass
+
+FILEBROWSER_URL_WWW = MEDIA_URL + 'uploads/'
+FILEBROWSER_URL_FILEBROWSER_MEDIA = MEDIA_URL + 'filebrowser/'
+FILEBROWSER_URL_TINYMCE = MEDIA_URL + 'js/tiny_mce/'
+FILEBROWSER_PATH_MEDIA = MEDIA_ROOT + 'filebrowser/'
+FILEBROWSER_PATH_TINYMCE = MEDIA_ROOT + 'js/tiny_mce/'
