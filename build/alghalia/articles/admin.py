@@ -28,6 +28,9 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ("title", "author", "featured", "published", "publication_date", "expiration_date", "creation_date", "modification_date", "view_count", )
     list_filter = ["featured", "published", ]
 
+    date_hierarchy = "publication_date"
+    ordering = ["-publication_date"]
+
     search_fields = ("title", "subtitle", "summary", "body", "tags", )
 
     save_on_top = True

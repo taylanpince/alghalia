@@ -9,11 +9,14 @@ from comments.models import Comment
 class CommentAdmin(BatchModelAdmin):
     list_display = ("pk", "author", "email", "title", "body", "creation_date", "modification_date", "published", )
     list_filter = ["published", ]
-    
+
+    date_hierarchy = "creation_date"
+    ordering = ["-creation_date"]
+
     search_fields = ("author", "email", "title", "body", )
-    
+
     save_on_top = True
-    
+
     fieldsets = (
         (_("Content"), {
             "fields": ("title", "body", "published", ),
