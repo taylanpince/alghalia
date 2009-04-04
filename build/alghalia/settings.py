@@ -91,11 +91,11 @@ CAPTCHA_FONT_PATH = os.path.join(MEDIA_ROOT, 'fonts/georgia-bold.ttf')
 TINYMCE_COMPRESSOR = True
 TINYMCE_DEFAULT_CONFIG = {
     'theme': 'advanced',
-    'plugins': 'advimage,advlink,fullscreen,visualchars,paste,media,searchreplace,table',
+    'plugins': 'advimage,advlink,fullscreen,paste,media,searchreplace,table,directionality',
     'theme_advanced_toolbar_location': 'top',
-    #'theme_advanced_buttons1': 'formatselect,bold,italic,underline,bullist,numlist,undo,redo,link,unlink,image,code,fullscreen,pasteword,media,search,replace,charmap',
-    #'theme_advanced_buttons2': '',
-    #'theme_advanced_buttons3': '',
+    'theme_advanced_buttons1': 'bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,formatselect',
+    'theme_advanced_buttons2': 'hr,blockquote,sub,sup,charmap,|,outdent,indent,|,undo,redo|link,unlink,anchor,|,image,media,|,cleanup,help,code',
+    'theme_advanced_buttons3': 'pasteword,search,replace,|,tablecontrols,|,ltr,rtl',
     'relative_urls': False,
 }
 
